@@ -185,7 +185,7 @@ values."
    ;; True if the home buffer should respond to resize events.
    dotspacemacs-startup-buffer-responsive t
    ;; Default major mode of the scratch buffer (default `text-mode')
-   dotspacemacs-scratch-mode 'text-mode
+   dotspacemacs-scratch-mode 'org-mode
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
@@ -374,8 +374,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq exec-path-from-shell-check-startup-files nil)
 
   ;; Set the Emacs customization file path. Must be done here in user-init.
-  (setq custom-file "~/.emacs.d/private/custom.el")
-)
+  ;; (setq custom-file "~/.emacs.d/private/custom.el")
+  (setq custom-file (concat spacemacs-cache-directory "custom-settings.el"))
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
