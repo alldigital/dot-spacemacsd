@@ -29,25 +29,6 @@
 
 ;;; Code:
 
-;; These should be moved to customization layer (here)
-;; dotspacemacs-additional-packages
-;; '(
-;;   ;; (org-protocol-capture-html :local (recipe :fetcher github :repo "alphapapa/org-protocol-capture-html"))
-;;   ;; (sunrise-commander :location (recipe :fetcher github :repo "escherdragon/sunrise-commander"))
-;;   ;; solarized-theme
-;;   clojure-snippets
-;;   color-theme-solarized
-;;   darkroom
-;;   dockerfile-mode
-;;   fontawesome
-;;   highlight-indent-guides
-;;   langtool
-;;   magithub
-;;   material-theme
-;;   plan9-theme
-;;   symon
-;;   )
-
 (defconst ed-misc-packages
   '()
   "The list of Lisp packages required by the ed-misc layer.
@@ -78,9 +59,6 @@ Each entry is either:
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
 (setq-default evil-escape-key-sequence "jk")
-
-;;; Treat all themes as safe
-(setq custom-safe-themes t)
 
 (when (eq system-type 'gnu/linux)
   ;; tweak for using brew emacs (not emacs-mac which doesn't support running
