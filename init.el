@@ -370,14 +370,6 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
-  (setq-default evil-escape-key-sequence "jk")
-
-  (when (eq system-type 'gnu/linux)
-    ;; tweak for using brew emacs (not emacs-mac which doesn't support running
-    ;; in a terminal)
-    (setq browse-url-browser-function 'browse-url-generic
-          browse-url-generic-program "google-chrome")
-    )
   ;; Avoid the dreaded $PATH env var warning durint initialization
   (setq exec-path-from-shell-check-startup-files nil)
 
@@ -397,100 +389,4 @@ you should place your code here."
   (when (file-exists-p custom-file)
     (load-file custom-file)
     )
-
-)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   (vector "#ffffff" "#f36c60" "#8bc34a" "#fff59d" "#4dd0e1" "#b39ddb" "#81d4fa" "#262626"))
- '(custom-safe-themes
-   (quote
-    ("a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
- '(fci-rule-color "#3a3a3a" t)
- '(hl-sexp-background-color "#121212")
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#f36c60")
-     (40 . "#ff9800")
-     (60 . "#fff59d")
-     (80 . "#8bc34a")
-     (100 . "#81d4fa")
-     (120 . "#4dd0e1")
-     (140 . "#b39ddb")
-     (160 . "#f36c60")
-     (180 . "#ff9800")
-     (200 . "#fff59d")
-     (220 . "#8bc34a")
-     (240 . "#81d4fa")
-     (260 . "#4dd0e1")
-     (280 . "#b39ddb")
-     (300 . "#f36c60")
-     (320 . "#ff9800")
-     (340 . "#fff59d")
-     (360 . "#8bc34a"))))
- '(vc-annotate-very-old-color nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Input Mono Compressed" :foundry "FBI " :slant normal :weight normal :height 105 :width extra-condensed))))
- )
-(defun dotspacemacs/emacs-custom-settings ()
-  "Emacs custom settings.
-This is an auto-generated function, do not modify its content directly, use
-Emacs customize menu instead.
-This function is called at the very end of Spacemacs initialization."
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default bold shadow italic underline bold bold-italic bold])
- '(ansi-color-names-vector
-   (vector "#ffffff" "#f36c60" "#8bc34a" "#fff59d" "#4dd0e1" "#b39ddb" "#81d4fa" "#262626"))
- '(custom-safe-themes
-   (quote
-    ("a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
- '(fci-rule-color "#3a3a3a" t)
- '(hl-sexp-background-color "#121212")
- '(package-selected-packages
-   (quote
-    (yapfify yaml-mode web-mode web-beautify vimrc-mode unfill treemacs-projectile treemacs-evil treemacs pfuture toml-mode tagedit smeargle slime-company slime slim-mode scss-mode sayid sass-mode rvm ruby-tools ruby-test-mode ruby-refactor rubocop rspec-mode robe realgud test-simple loc-changes load-relative rbenv ranger rainbow-mode rainbow-identifiers racket-mode faceup racer pyvenv pytest pyenv-mode py-isort pug-mode projectile-rails rake plan9-theme pip-requirements phpunit phpcbf php-extras php-auto-yasnippets pdf-tools ox-gfm orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-download org-brain nginx-mode mwim mvn mmm-mode minitest meghanada maven-test-mode markdown-toc magithub markdown-mode ghub+ apiwrap magit-gitflow magit-gh-pulls livid-mode skewer-mode live-py-mode less-css-mode langtool js2-refactor js2-mode js-doc jinja2-mode intero impatient-mode ibuffer-projectile hy-mode htmlize hlint-refactor hindent highlight-indent-guides helm-pydoc helm-hoogle helm-gtags helm-gitignore helm-css-scss helm-company helm-c-yasnippet haskell-snippets haml-mode groovy-mode groovy-imports gradle-mode gnuplot gitignore-mode github-search github-clone gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gist gh marshal logito pcache ht gh-md ggtags geiser fuzzy fontawesome flyspell-correct-helm flyspell-correct flycheck-rust flycheck-pos-tip pos-tip flycheck-haskell flycheck-elm floobits feature-mode evil-org evil-magit magit git-commit ghub with-editor ensime sbt-mode scala-mode emmet-mode elm-mode elfeed-web simple-httpd elfeed-org elfeed-goodies ace-jump-mode noflet elfeed drupal-mode dockerfile-mode docker json-mode tablist magit-popup docker-tramp json-snatcher json-reformat disaster diff-hl darkroom dante flycheck dactyl-mode cython-mode csv-mode company-web web-completion-data company-tern dash-functional tern company-statistics company-php ac-php-core xcscope php-mode company-lua lua-mode company-ghci company-ghc ghc haskell-mode company-emacs-eclim eclim company-cabal company-c-headers company-ansible company-anaconda company common-lisp-snippets command-log-mode color-theme-solarized color-theme color-identifiers-mode coffee-mode cmm-mode cmake-mode cmake-ide levenshtein clojure-snippets clojure-cheatsheet clj-refactor inflections edn multiple-cursors paredit peg clang-format cider-eval-sexp-fu cider queue clojure-mode chruby cargo rust-mode bundler inf-ruby browse-at-remote auto-yasnippet yasnippet auto-dictionary ansible-doc ansible anaconda-mode pythonic ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org symon string-inflection spaceline solarized-theme restart-emacs request rainbow-delimiters popwin persp-mode pcre2el password-generator paradox overseer org-plus-contrib org-bullets open-junk-file neotree nameless move-text material-theme macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-purpose helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav editorconfig dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
- '(vc-annotate-background nil)
- '(vc-annotate-color-map
-   (quote
-    ((20 . "#f36c60")
-     (40 . "#ff9800")
-     (60 . "#fff59d")
-     (80 . "#8bc34a")
-     (100 . "#81d4fa")
-     (120 . "#4dd0e1")
-     (140 . "#b39ddb")
-     (160 . "#f36c60")
-     (180 . "#ff9800")
-     (200 . "#fff59d")
-     (220 . "#8bc34a")
-     (240 . "#81d4fa")
-     (260 . "#4dd0e1")
-     (280 . "#b39ddb")
-     (300 . "#f36c60")
-     (320 . "#ff9800")
-     (340 . "#fff59d")
-     (360 . "#8bc34a"))))
- '(vc-annotate-very-old-color nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:family "Input Mono Compressed" :foundry "FBI " :slant normal :weight normal :height 105 :width extra-condensed)))))
 )

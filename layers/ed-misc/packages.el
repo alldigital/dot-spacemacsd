@@ -58,6 +58,15 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
+(setq-default evil-escape-key-sequence "jk")
+
+(when (eq system-type 'gnu/linux)
+  ;; tweak for using brew emacs (not emacs-mac which doesn't support running
+  ;; in a terminal)
+  (setq browse-url-browser-function 'browse-url-generic
+        browse-url-generic-program "google-chrome")
+  )
+
 ;; Some color related settings
 
 ;; material colors for pdf-view night mode
