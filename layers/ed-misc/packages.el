@@ -334,6 +334,7 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
 
   (ed/configure-org-mode)
 
+(setq custom-safe-themes t)
   (load-theme 'material)
 
 
