@@ -1,0 +1,2 @@
+* My Spacemacs config
+This is my ~/.spacemacs.d/ configuration. Note that I am using the develop branch of Spacemacs, so some things may not work as expected.
