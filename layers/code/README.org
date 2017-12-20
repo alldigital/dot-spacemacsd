@@ -1,0 +1,25 @@
+* Table of Contents                                       :TOC_4_gh:noexport:
+- [[#description][Description]]
+- [[#install][Install]]
+- [[#key-bindings][Key bindings]]
+
+* Description
+  This layer brings together various customizations that affect my coding experience.
+
+* Install
+  To use this configuration layer, add it to your =~/.spacemacs= or =~/.spacemacs.d/init.el=.
+  You will need to add =code= to the existing =dotspacemacs-configuration-layers= list in this file.
+
+* Key bindings
+
+[[https://github.com/expez/evil-smartparens][Detailed description here.]]
+
+| Key Binding | Description                                       |
+|-------------+---------------------------------------------------|
+| dW          | delete s-expression                               |
+| dd          | delete s-exp line                                 |
+| vd          | visual delete                                     |
+| D           | D works like sp-kill-sexp with a universal prefix |
+| c           | like d for changing                               |
+| C           | like D for changing                               |
+| o           | In visual state back to evil mode functionality   |
