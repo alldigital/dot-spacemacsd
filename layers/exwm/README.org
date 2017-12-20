@@ -1,3 +1,4 @@
+
 * EXWM contribution layer for Spacemacs
 
 ** Table of Contents                                                  :TOC@4:

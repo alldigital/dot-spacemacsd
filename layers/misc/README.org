@@ -1,5 +1,3 @@
-#+TITLE: ed-misc layer
-
 * Table of Contents                                       :TOC_4_gh:noexport:
 - [[#description][Description]]
 - [[#install][Install]]
@@ -39,5 +37,5 @@ cluttering up my =init.el= file.
 | C-,"         | sp-forward-barf-sexp                        |
 | C-M-<right>" | sp-forward-slurp-sexp                       |
 | C-.          | sp-forward-slurp-sexp                       |
-| M-<up>"      | sp-splice-sexp-killing-backward             |
-| M-<down>"    | sp-splice-sexp-killing-forward              |
+| M-<up>       | sp-splice-sexp-killing-backward             |
+| M-<down>     | sp-splice-sexp-killing-forward              |
