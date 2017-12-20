@@ -7,7 +7,6 @@
     darkroom
     highlight-indent-guides
     fontawesome
-    symon
     )
   "The list of Lisp packages required by the display layer.")
 
@@ -25,9 +24,6 @@
 
 (defun display/init-fontawesome ()
   (use-package fontawesome))
-
-(defun display/init-symon ()
-  (use-package symon))
 
 ;; Misc display related settings
 

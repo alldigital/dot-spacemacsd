@@ -7,7 +7,7 @@
     )
   "The list of Lisp packages required by the code layer.")
 
-(defun display/init-evil-smartparens ()
+(defun code/init-evil-smartparens ()
   (use-package evil-smartparens))
 
 ;;; packages.el ends here

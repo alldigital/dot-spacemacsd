@@ -101,6 +101,7 @@ values."
      ;;       exwm--terminal-command "termite")
 
      ;; My layers
+     code
      misc
      display
      exwm
