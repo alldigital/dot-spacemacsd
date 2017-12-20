@@ -27,10 +27,12 @@
     :demand))
 
 (defun exwm/init-xelb ()
-  (use-package xelb))
+  (use-package xelb
+    :demand))
 
 (defun exwm/init-exwm ()
   (use-package exwm
+    :demand
     :init
     ;; Disable dialog boxes since they are unusable in EXWM
     (setq use-dialog-box nil)

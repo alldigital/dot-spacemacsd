@@ -95,7 +95,9 @@ values."
      ;;       exwm--terminal-command "termite")
 
      ;; My layers
-     ed-misc
+     misc
+     display
+     exwm
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -105,19 +107,12 @@ values."
    '(
      ;; (org-protocol-capture-html :local (recipe :fetcher github :repo "alphapapa/org-protocol-capture-html"))
      ;; (sunrise-commander :location (recipe :fetcher github :repo "escherdragon/sunrise-commander"))
-     ;; solarized-theme
      clojure-snippets
-     color-theme-solarized
-     darkroom
      dockerfile-mode
-     fontawesome
-     highlight-indent-guides
      langtool
      magithub
-     material-theme
-     plan9-theme
-     symon
      )
+
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be ins talled and loaded.
@@ -191,8 +186,6 @@ values."
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
                          material
-                         solarized
-                         solarized-light
                          spacemacs-dark
                          spacemacs-light
                          )
@@ -329,7 +322,7 @@ values."
    ;;   :size-limit-kb 1000)
    ;; (default nil)
    dotspacemacs-line-numbers '(:relative t
-                               :size-limit-kb 1024)
+                                         :size-limit-kb 1024)
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -375,7 +368,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   ;; Set the Emacs customization file path. Must be done here in user-init.
   (setq custom-file "~/.emacs.d/private/custom.el")
-)
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -386,9 +379,8 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
 
-  ;; Lastly, load custom-file (but only if the file exists).
+  ;; Finally, load custom-file if it exists.
   (when (file-exists-p custom-file)
     (load-file custom-file)
     )
-
-)
+  )
