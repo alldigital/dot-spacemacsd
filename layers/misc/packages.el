@@ -28,8 +28,6 @@
 (setq delete-old-versions 1)
 (backups-minor-mode)
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
 ;; Add line numbers
 ;;(global-linum-mode)
 ;;(with-eval-after-load 'linum

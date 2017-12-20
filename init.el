@@ -30,7 +30,10 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-return-key-behavior 'complete
+                      auto-completion-tab-key-behavior 'complete
+                      auto-completion-enable-snippets-in-popup t)
      better-defaults
      helm
      spell-checking
@@ -48,7 +51,8 @@ values."
      javascript
      lua
      php
-     python
+     (python :variables
+             python-sort-imports-on-save t)
      scheme
      racket
      (ruby :variables ruby-version-manager 'rvm)
@@ -70,11 +74,13 @@ values."
      nginx
      pdf-tools
      yaml
-     (org :variables org-enable-github-support t)
+     (org :variables org-enable-github-support t
+          org-want-todo-bindings t)
      (spacemacs-layouts :variables layouts-enable-autosave t layouts-autosave-delay 300)
-     ;; (shell :variables
+     (shell :variables
      ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+            shell-default-shell 'eshell
+            shell-default-position 'bottom)
      (ranger :variables ranger-show-preview t
              ranger-show-hidden t
              ranger-cleanup-eagerly t
@@ -110,7 +116,6 @@ values."
      clojure-snippets
      dockerfile-mode
      langtool
-     magithub
      )
 
    ;; A list of packages that cannot be updated.
@@ -161,7 +166,7 @@ values."
    ;; (default 'vim)
    dotspacemacs-editing-style 'vim
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
-   dotspacemacs-verbose-loading nil
+   dotspacemacs-verbose-loading t
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
    ;; banner, `random' chooses a random text banner in `core/banners'
@@ -221,7 +226,7 @@ values."
    ;; and TAB or <C-m> and RET.
    ;; In the terminal, these pairs are generally indistinguishable, so this only
    ;; works in the GUI. (default nil)
-   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-distinguish-gui-tab t
    ;; If non nil `Y' is remapped to `y$' in Evil states. (default nil)
    dotspacemacs-remap-Y-to-y$ nil
    ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
@@ -267,7 +272,7 @@ values."
    dotspacemacs-helm-use-fuzzy 'always
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
-   dotspacemacs-enable-paste-transient-state nil
+   dotspacemacs-enable-paste-transient-state t
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
    dotspacemacs-which-key-delay 0.4
@@ -328,7 +333,7 @@ values."
    dotspacemacs-folding-method 'evil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc…
    ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
@@ -353,7 +358,7 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-whitespace-cleanup 'trailing
    ))
 
 (defun dotspacemacs/user-init ()
