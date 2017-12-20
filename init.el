@@ -42,7 +42,7 @@ values."
      c-c++
      (clojure :variables clojure-enable-fancify-symbols t)
      (colors variables: colors-enable-nyan-cat-progress-bar t)
-     common-lisp
+     ;; common-lisp
      elm
      emacs-lisp
      gtags
@@ -105,6 +105,7 @@ values."
      misc
      display
      exwm
+     ed-common-lisp
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
