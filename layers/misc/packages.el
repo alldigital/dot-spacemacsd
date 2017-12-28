@@ -6,6 +6,11 @@
 
 (setq-default evil-escape-key-sequence "jk")
 
+;; Change eshell completion framework from company to helm
+(defun setup-eshell-helm-completion ()
+  (define-key eshell-mode-map [remap eshell-pcomplete] 'helm-esh-pcomplete))
+
+(add-hook 'eshell-mode-hook #'setup-eshell-helm-completion)
 (when (eq system-type 'gnu/linux)
   (setq browse-url-browser-function 'browse-url-generic
         browse-url-generic-program "google-chrome")
@@ -13,11 +18,6 @@
 
 ;; SPC h d k workaround, causes error otherwise
 ;; (require 'ansible-doc)
-
-(require 'org-protocol)
-;; (require 'org-protocol-capture-html)
-
-;; (require 'darkroom)
 
 ;; backups-mode
 (add-to-list 'load-path "~/.emacs.d/private/local/backups-mode")
@@ -28,19 +28,8 @@
 (setq delete-old-versions 1)
 (backups-minor-mode)
 
-;; Add line numbers
-;;(global-linum-mode)
-;;(with-eval-after-load 'linum
-;; (linum-relative-toggle))
-
-;; Copy text selected with the mouse to kill ring and clipboard
+;; Copy text selected with the mouse to kill rin/home/ed/.spacemacs.d/layers/misc/packages.elg and clipboard
 (setq mouse-drag-copy-region t)
-
-;; Org mode alternative bullets
-(setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
-;; All files in this directory should activate org-mode
-(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
-(add-to-list 'auto-mode-alist `(,(expand-file-name "~/.notes/") . org-mode))
 
 (setq auto-save-file-name-transforms '((".*" "~/.emacs.local.d/auto-save-list/" t)))
 
@@ -75,11 +64,6 @@
   "oa" 'org-agenda
   "od" 'ed/org-agenda-day
   "oc" 'org-capture
-  )
-
-(defun ed/org-agenda-day ()
-  (interactive)
-  (org-agenda-list nil nil 'day nil)
   )
 
 ;; replaces URL with Org-mode link including description
@@ -129,32 +113,6 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
           (insert resultLinkStr)
           )
         ))))
-
-;; Org Capture
-(defun ed/configure-org-capture ()
-
-  ;; Capture support functions
-
-  ;; Capture templates
-
-  (setq org-capture-templates
-        (quote (
-                ("a" "Appointment" entry (file+headline "gcal.org" "Appointments")
-                 "* TODO  %?\nAppointment created: %U\nDeadline: %^T\n%a\n" :prepend t)
-                ("l" "Link" entry (file+headline "links.org" "Unsorted Links")
-                 "* %? %^L %^g \n%T" :prepend t)
-                ("n" "Note" entry (file+headline org-default-notes-file "Unsorted Notes")
-                 "*  %? :NOTE:\n%U\n%a\n" :prepend t)
-                ("N" "Note with clipboard contents" entry (file+headline org-default-notes-file "Unsorted Notes")
-                 "*  %? :NOTE:\n%U\n#+BEGIN_QUOTE\n%x\n#+END_QUOTE\n" :prepend t)
-                ("t" "Todo" entry (file+headline org-default-notes-file "Unsorted Todo")
-                 "* TODO %?\n%U\n%a\n" :prepend t)
-                ("m" "Movies to see" entry (file+headline "movies.org" "To Download")
-                 "* ToDownload %? \n  :PROPERTIES:\n  :DATE: %t\n  :URL: %c\n  :END:")
-                ("i" "idea" entry (file org-default-notes-file)
-                 "* %? :IDEA:\n%U\n%a\n")
-                )))
-  )
 
 ;; Clojure additional settings
 
@@ -214,10 +172,47 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
 ;; Bunch of useful settings from internets
 (add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
 
+;; (custom-set-faces
+;; custom-set-faces was added by Custom.
+;; If you edit it by hand, you could mess it up, so be careful.
+;; Your init file should contain only one such instance.
+;; If there is more than one, they won't work right.
+;; '(default ((t (:background nil))))
+;;  '(helm-ff-directory ((t (:background "#263238" :foreground "#81d4fa"))))
+;;  '(helm-ff-file ((t (:background "#263238" :foreground "#ffffff"))))
 
-(defun ed/configure-org-mode ()
-  ;; (require 'org-checklist)
-  (ed/configure-org-capture)
+;;  '(slime-repl-inputed-output-face ((t (:foreground "Green")))))
+
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "/usr/bin/sbcl")
+
+(with-eval-after-load 'org
+  ;; Capture templates
+
+  (setq org-capture-templates
+        (quote (
+                ("a" "Appointment" entry (file+headline "gcal.org" "Appointments")
+                 "* TODO  %?\nAppointment created: %U\nDeadline: %^T\n%a\n" :prepend t)
+                ("l" "Link" entry (file+headline "links.org" "Unsorted Links")
+                 "* %? %^L %^g ;; \n%T" :prepend t) ;
+                ("n" "Note" entry (file+headline org-default-notes-file "Unsorted Notes")
+                 "*  %? :NOTE:\n%U\n%a\n" :prepend t)
+                ("N" "Note with clipboard contents" entry (file+headline org-default-notes-file "Unsorted Notes")
+                 "*  %? :NOTE:\n%U\n#+BEGIN_QUOTE\n%x\n#+END_QUOTE\n" :prepend t)
+                ("t" "Todo" entry (file+headline org-default-notes-file "Unsorted Todo")
+                 "* TODO %?\n%U\n%a\n" :prepend t)
+                ("m" "Movies to see" entry (file+headline "movies.org" "To Download")
+                 "* ToDownload %? \n  :PROPERTIES:\n  :DATE: %t\n  :URL: %c\n  :END:")
+                ("i" "idea" entry (file org-default-notes-file)
+                 "* %? :IDEA:\n%U\n%a\n")
+                )))
+
+  ;; Org mode alternative bullets
+  (setq org-bullets-bullet-list '("■" "◆" "▲" "▶"))
+  ;; All files in this directory should activate org-mode
+  (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+  (add-to-list 'auto-mode-alist `(,(expand-file-name "~/.notes/") . org-mode))
 
   ;;  Org file paths
   (setq ed/home-dir (expand-file-name "~"))
@@ -247,23 +242,21 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
           ("WAITING" . "blue")
           ("DONE" :foreground "white" :weight bold)
           ("CANCELLED" :foreground "purple" :weight bold :strike-through t))))
+
+(defun ed/org-agenda-day ()
+  (interactive)
+  (org-agenda-list nil nil 'day nil)
   )
 
-;; (custom-set-faces
-;; custom-set-faces was added by Custom.
-;; If you edit it by hand, you could mess it up, so be careful.
-;; Your init file should contain only one such instance.
-;; If there is more than one, they won't work right.
-;; '(default ((t (:background nil))))
-;;  '(helm-ff-directory ((t (:background "#263238" :foreground "#81d4fa"))))
-;;  '(helm-ff-file ((t (:background "#263238" :foreground "#ffffff"))))
+(defun nolinum ()
+  (interactive)
+  (message "Deactivated linum mode")
+  (global-linum-mode 0)
+  (linum-mode 0)
+  )
 
-;;  '(slime-repl-inputed-output-face ((t (:foreground "Green")))))
+(add-hook 'org-mode-hook 'nolinum)
 
-(ed/configure-org-mode)
-
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
-;; Replace "sbcl" with the path to your implementation
-(setq inferior-lisp-program "/usr/bin/sbcl")
+)
 
 ;;; packages.el ends here

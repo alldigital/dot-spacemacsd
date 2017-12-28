@@ -54,6 +54,7 @@ values."
      (python :variables
              python-sort-imports-on-save t)
      scheme
+     shell-scripts
      racket
      (ruby :variables ruby-version-manager 'rvm)
      ruby-on-rails
@@ -75,7 +76,7 @@ values."
      pdf-tools
      yaml
      (org :variables org-enable-github-support t
-          org-want-todo-bindings t)
+         org-want-todo-bindings t)
      (spacemacs-layouts :variables layouts-enable-autosave t layouts-autosave-delay 300)
      (shell :variables
      ;;        shell-default-height 30
@@ -101,7 +102,7 @@ values."
      ;;       exwm--terminal-command "termite")
 
      ;; My layers
-     code
+ code
      misc
      display
      exwm
@@ -384,7 +385,6 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-
 
   ;; Finally, load custom-file if it exists.
   (when (file-exists-p custom-file)
