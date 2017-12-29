@@ -35,15 +35,12 @@
 (defun ed/setup-fonts ()
   ;; default font and variable-pitch fonts
   (set-face-attribute 'default nil
-                      :family "Fira Mono"
-                      :height ed/original-height)
+                      :family "Fira Mono")
   (dolist (face '(mode-line mode-line-inactive minibuffer-prompt))
-    (set-face-attribute face nil :family "Fira Mono"
-                        :height ed/original-height))
+    (set-face-attribute face nil :family "Fira Mono"))
   (set-face-attribute 'variable-pitch nil
-                      :family "Fira Sans" :height ed/original-height)
-  (set-face-attribute 'fixed-pitch nil
-                      :family "Fira Mono" :height ed/original-height)
+                      :family "Fira Sans")
+  (set-face-attribute 'fixed-pitch nil :family "Fira Mono")
   ;; font for all unicode characters
   ;;(set-fontset-font t 'unicode "DejaVu Sans Mono" nil 'prepend)
   )

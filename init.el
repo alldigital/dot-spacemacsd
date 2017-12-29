@@ -92,9 +92,9 @@ values."
      floobits
      ibuffer
      (spacemacs-purpose)
-     (treemacs :variables treemacs-use-follow-mode t
-               treemacs-use-filewatch-mode t
-               treemacs-use-collapsed-directories 3)
+     ;; (treemacs :variables treemacs-use-follow-mode t
+     ;;           treemacs-use-filewatch-mode t
+     ;;           treemacs-use-collapsed-directories 3)
      ;; (exwm :variables
      ;;       exwm-app-launcher--prompt "$ "
      ;;       exwm--locking-command "i3lock-fancy"
@@ -105,7 +105,7 @@ values."
  code
      misc
      display
-     exwm
+     ;; exwm                              ;
      ed-common-lisp
      )
    ;; List of additional packages that will be installed without being
