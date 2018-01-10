@@ -32,15 +32,15 @@ values."
    '(
      (auto-completion :variables
                       auto-completion-return-key-behavior 'complete
-                      auto-completion-tab-key-behavior 'complete
-                      auto-completion-enable-snippets-in-popup t)
+                      auto-completion-tab-key-behavior 'cycle)
+
      better-defaults
      helm
      spell-checking
      syntax-checking
      ;; Programming languages
      c-c++
-     (clojure :variables clojure-enable-fancify-symbols t)
+     (clojure :variables clojure-enable-fancify-symbols nil)
      (colors variables: colors-enable-nyan-cat-progress-bar t)
      ;; common-lisp
      elm
@@ -91,7 +91,7 @@ values."
      ;; Utility layers
      floobits
      ibuffer
-     (spacemacs-purpose)
+     ;; (spacemacs-purpose)
      ;; (treemacs :variables treemacs-use-follow-mode t
      ;;           treemacs-use-filewatch-mode t
      ;;           treemacs-use-collapsed-directories 3)
@@ -102,7 +102,7 @@ values."
      ;;       exwm--terminal-command "termite")
 
      ;; My layers
- code
+     code
      misc
      display
      ;; exwm                              ;
@@ -201,11 +201,11 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Fira Mono"
+   dotspacemacs-default-font '("Hack"
                                :size 14
                                :weight normal
                                :width normal
-                               :style Medium
+                               :style normal
                                :powerline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"

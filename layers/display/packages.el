@@ -35,14 +35,14 @@
 (defun ed/setup-fonts ()
   ;; default font and variable-pitch fonts
   (set-face-attribute 'default nil
-                      :family "Fira Mono")
+                      :family "Hack")
   (dolist (face '(mode-line mode-line-inactive minibuffer-prompt))
-    (set-face-attribute face nil :family "Fira Mono"))
+    (set-face-attribute face nil :family "Hack"))
   (set-face-attribute 'variable-pitch nil
                       :family "Fira Sans")
-  (set-face-attribute 'fixed-pitch nil :family "Fira Mono")
+  (set-face-attribute 'fixed-pitch nil :family "Hack")
   ;; font for all unicode characters
-  ;;(set-fontset-font t 'unicode "DejaVu Sans Mono" nil 'prepend)
+  ;; (set-fontset-font t 'unicode "DejaVu Sans Mono" nil 'prepend)
   )
 
 (add-hook 'after-init-hook #'ed/setup-fonts)
