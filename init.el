@@ -105,6 +105,7 @@ values."
      code
      misc
      display
+     mastodon
      ;; exwm                              ;
      ed-common-lisp
      )
