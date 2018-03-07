@@ -1,8 +1,15 @@
 ;; packages.el --- misc layer packages file for Spacemacs.
 
 (defconst misc-packages
-  '()
+  '(
+    nov
+    )
   "The list of Lisp packages required by the ed-misc layer." )
+
+(defun misc/init-nov ()
+  (use-package nov))
+
+(add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
 (setq-default evil-escape-key-sequence "jk")
 
@@ -256,6 +263,20 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
   )
 
 (add-hook 'org-mode-hook 'nolinum)
+
+
+(defun org-set-line-checkbox (arg)
+  (interactive "P")
+  (let ((n (or arg 1)))
+    (when (region-active-p)
+      (setq n (count-lines (region-beginning)
+                           (region-end)))
+      (goto-char (region-beginning)))
+    (dotimes (i n)
+      (beginning-of-line)
+      (insert "- [ ] ")
+      (forward-line))
+    (beginning-of-line)))
 
 )
 
