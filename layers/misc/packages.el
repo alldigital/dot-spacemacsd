@@ -20,20 +20,20 @@
 (add-hook 'eshell-mode-hook #'setup-eshell-helm-completion)
 (when (eq system-type 'gnu/linux)
   (setq browse-url-browser-function 'browse-url-generic
-        browse-url-generic-program "google-chrome")
+        browse-url-generic-program "firefox")
   )
 
 ;; SPC h d k workaround, causes error otherwise
 ;; (require 'ansible-doc)
 
 ;; backups-mode
-(add-to-list 'load-path "~/.emacs.d/private/local/backups-mode")
-(require 'backups-mode)
+;; (add-to-list 'load-path "~/.emacs.d/private/local/backups-mode")
+;; (require 'backups-mode)
 ;; (defvar backup-directory "~/.emacs-backups/backups/")
 ;; (defvar tramp-backup-directory "~/.emacs-backups/tramp-backups/")
 ;; keep all versions forever
-(setq delete-old-versions 1)
-(backups-minor-mode)
+;; (setq delete-old-versions 1)
+;; (backups-minor-mode)
 
 ;; Copy text selected with the mouse to kill rin/home/ed/.spacemacs.d/layers/misc/packages.elg and clipboard
 (setq mouse-drag-copy-region t)
@@ -190,9 +190,9 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
 
 ;;  '(slime-repl-inputed-output-face ((t (:foreground "Green")))))
 
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
 ;; Replace "sbcl" with the path to your implementation
-(setq inferior-lisp-program "/usr/bin/sbcl")
+;; (setq inferior-lisp-program "/usr/bin/sbcl")
 
 (with-eval-after-load 'org
   ;; Capture templates
