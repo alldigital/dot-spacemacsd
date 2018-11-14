@@ -3,11 +3,21 @@
 (defconst misc-packages
   '(
     nov
+    evil-collection
     )
   "The list of Lisp packages required by the ed-misc layer." )
 
 (defun misc/init-nov ()
   (use-package nov))
+
+(setq evil-want-keybinding nil)
+
+(defun misc/init-evil-collection ()
+  (use-package evil-collection
+    :after evil
+    :ensure t
+    :config
+    (evil-collection-init)))
 
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
