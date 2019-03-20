@@ -223,6 +223,8 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
                  "* ToDownload %? \n  :PROPERTIES:\n  :DATE: %t\n  :URL: %c\n  :END:")
                 ("i" "idea" entry (file org-default-notes-file)
                  "* %? :IDEA:\n%U\n%a\n")
+                ("j" "Journal" entry (file+olp+datetree "~/org/journal.org" "Journal")
+                 "* %?\n  %i\n  %a\n")
                 )))
 
   ;; Org mode alternative bullets
