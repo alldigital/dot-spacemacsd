@@ -224,7 +224,7 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
                 ("i" "idea" entry (file org-default-notes-file)
                  "* %? :IDEA:\n%U\n%a\n")
                 ("j" "Journal" entry (file+olp+datetree "~/org/journal.org" "Journal")
-                 "* %?\n  %i\n  %a\n")
+                 "* %<%Y-%m-%d %H:%M>  %?\n  %i\n  %a\n")
                 )))
 
   ;; Org mode alternative bullets
