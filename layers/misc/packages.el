@@ -292,4 +292,10 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
 
 )
 
+;;; Revert buffer to the file contents on disk
+(global-set-key (kbd "C-c r") (lambda ()
+                                (interactive)
+                                (revert-buffer t t t)
+                                (message "buffer is reverted")))
+
 ;;; packages.el ends here
