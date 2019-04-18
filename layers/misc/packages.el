@@ -205,6 +205,11 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
 ;; (setq inferior-lisp-program "/usr/bin/sbcl")
 
 (with-eval-after-load 'org
+
+  ;; When capturing go into insert mode
+
+  (add-hook 'org-capture-mode-hook 'evil-insert-mode)
+
   ;; Capture templates
 
   (setq org-capture-templates
