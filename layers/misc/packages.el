@@ -303,4 +303,12 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
                                 (revert-buffer t t t)
                                 (message "buffer is reverted")))
 
+
+;;; Remove DOS EOL
+
+(defun ed/remove-dos-eol()
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
+
 ;;; packages.el ends here
