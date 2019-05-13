@@ -2,8 +2,9 @@
 
 (defconst misc-packages
   '(
-    nov
     evil-collection
+    nov
+    speed-type
     )
   "The list of Lisp packages required by the ed-misc layer." )
 
@@ -18,6 +19,9 @@
     :ensure t
     :config
     (evil-collection-init)))
+
+(defun misc/init-speed-type ()
+  (use-package speed-type))
 
 (add-to-list 'auto-mode-alist '("\\.epub\\'" . nov-mode))
 
@@ -206,10 +210,6 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
 
 (with-eval-after-load 'org
 
-  ;; When capturing go into insert mode
-
-  (add-hook 'org-capture-mode-hook 'evil-insert-mode)
-
   ;; Capture templates
 
   (setq org-capture-templates
@@ -294,6 +294,10 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
       (insert "- [ ] ")
       (forward-line))
     (beginning-of-line)))
+
+;;; When capturing go into insert mode
+
+(add-hook 'org-capture-mode-hook 'evil-insert-state)
 
 )
 
