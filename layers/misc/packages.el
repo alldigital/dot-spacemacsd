@@ -315,4 +315,5 @@ Adapted code from: http://ergoemacs.org/emacs/elisp_html-linkify.html"
   (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
 
+(setq mw-thesaurus--api-key "62758020-2f5d-477f-9977-819226fd5823")
 ;;; packages.el ends here

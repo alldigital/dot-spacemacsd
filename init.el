@@ -66,7 +66,7 @@ values."
      github
      version-control
      ;; Markup
-     ansible
+     ;; ansible
      command-log
      csv
      docker
@@ -120,6 +120,7 @@ values."
      clojure-snippets
      dockerfile-mode
      langtool
+     mw-thesaurus
      )
 
    ;; A list of packages that cannot be updated.
@@ -194,6 +195,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
+                         material-light
                          material
                          spacemacs-dark
                          spacemacs-light
@@ -377,6 +379,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   ;; Set the Emacs customization file path. Must be done here in user-init.
   (setq custom-file "~/.emacs.d/private/custom.el")
+  (spacemacs/disable-transparency)
   )
 
 (defun dotspacemacs/user-config ()
