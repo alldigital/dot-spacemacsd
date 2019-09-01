@@ -86,6 +86,6 @@
       (list 'markdown-pre-face 'markdown-inline-code-face))))
 
 (setq custom-safe-themes t)
-(load-theme 'material)
+(load-theme 'material-light)
 
 ;;; packages.el ends here

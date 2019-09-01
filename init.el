@@ -379,7 +379,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
   ;; Set the Emacs customization file path. Must be done here in user-init.
   (setq custom-file "~/.emacs.d/private/custom.el")
-  (spacemacs/disable-transparency)
   )
 
 (defun dotspacemacs/user-config ()
@@ -393,5 +392,5 @@ you should place your code here."
   ;; Finally, load custom-file if it exists.
   (when (file-exists-p custom-file)
     (load-file custom-file)
-    )
+  )
   )
