@@ -46,11 +46,11 @@ values."
      elm
      emacs-lisp
      gtags
-     haskell
+     ;; haskell
      java
      javascript
      lua
-     php
+     ;; php
      (python :variables
              python-sort-imports-on-save t)
      scheme
